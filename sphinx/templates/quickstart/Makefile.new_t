@@ -2,7 +2,7 @@
 #
 
 # You can set these variables from the command line.
-SPHINXOPTS    =
+SPHINXOPTS    = {{ cmdopts }}
 SPHINXBUILD   = python -msphinx
 SPHINXPROJ    = {{ project_fn }}
 SOURCEDIR     = {{ rsrcdir }}

@@ -236,6 +236,7 @@ def ask_user(d):
     * master:    master document name
     * epub:      use epub (bool)
     * ext_*:     extensions to use (bools)
+    * nitpick:   enable nitpick build mode
     * makefile:  make Makefile
     * batchfile: make command file
     """
@@ -378,6 +379,10 @@ imgmath has been deselected.''')
         do_prompt(d, 'ext_githubpages', 'githubpages: create .nojekyll file '
                   'to publish the document on GitHub pages (y/n)', 'n', boolean)
 
+    if 'nitpick' not in d:
+        do_prompt(d, 'nitpick', 'nitpick: enable more detailed warnings '
+                  'during build (y/n)', 'n', boolean)
+
     if 'no_makefile' in d:
         d['makefile'] = False
     elif 'makefile' not in d:
@@ -451,6 +456,8 @@ def generate(d, overwrite=True, silent=False, templatedir=None):
     mkdir_p(builddir)
     mkdir_p(path.join(srcdir, d['dot'] + 'templates'))
     mkdir_p(path.join(srcdir, d['dot'] + 'static'))
+
+    d['cmdopts'] = d['nitpick'] and '-n' or ''
 
     def write_file(fpath, content, newline=None):
         # type: (unicode, unicode, unicode) -> None

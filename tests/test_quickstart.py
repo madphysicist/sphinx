@@ -184,6 +184,7 @@ def test_quickstart_all_answers(tempdir):
         'ifconfig': 'no',
         'viewcode': 'no',
         'githubpages': 'no',
+        'nitpick': 'n',
         'Create Makefile': 'no',
         'Create Windows command file': 'no',
         'Do you want to use the epub builder': 'yes',

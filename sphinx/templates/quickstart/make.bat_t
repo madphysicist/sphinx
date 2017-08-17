@@ -7,6 +7,7 @@ pushd %~dp0
 if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=python -msphinx
 )
+set SPHINXOPTS={{ cmdopts }}
 set BUILDDIR={{ rbuilddir }}
 set ALLSPHINXOPTS=-d %BUILDDIR%/doctrees %SPHINXOPTS% {{ rsrcdir }}
 set I18NSPHINXOPTS=%SPHINXOPTS% {{ rsrcdir }}
